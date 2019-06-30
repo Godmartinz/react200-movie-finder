@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import MovieDetailContainer from './MovieDetail';
+import MovieSearchContainer from './MovieSearch';
 
 export default class App extends Component {
   render() {
     return (
-      <h1>Hello World</h1>
+      <Router>
+        <div className='container'>
+          <Route exact path='/' component={ MovieSearchContainer } />
+          <Route path='/movie/:id' component={ MovieDetailContainer } />
+        </div>
+      </Router>
     );
   }
 }
